@@ -1,0 +1,179 @@
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+  font-family: Jost, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  background: #19291f;
+}
+
+body {
+  margin: 0;
+  background: #19291f;
+  -webkit-font-smoothing: antialiased;
+}
+
+.kolam ellipse,
+.kolam circle.l {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+.kolam.active ellipse,
+.kolam.active circle.l {
+  animation: draw 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.kolam .d {
+  opacity: 0;
+}
+
+.kolam.active .d {
+  animation: pop 0.8s ease forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 3D Door Entrance Animation */
+.doors-perspective {
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+}
+
+.door-panel-left {
+  will-change: transform;
+  transition: transform 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.door-panel-right {
+  will-change: transform;
+  transition: transform 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.door-open-left {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+
+.door-open-right {
+  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+}
+
+@keyframes doorGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(197, 166, 109, 0.25), 0 0 40px rgba(197, 166, 109, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(197, 166, 109, 0.5), 0 0 65px rgba(197, 166, 109, 0.25);
+  }
+}
+
+.door-seal-pulse {
+  animation: doorGlow 2.8s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(1px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+.kasavu {
+  height: 9px;
+  background: repeating-linear-gradient(
+    90deg,
+    #c5a66d 0 14px,
+    transparent 14px 20px
+  );
+  border-block: 1px solid #c5a66d;
+}
+
+.btn {
+  border: 1px solid currentColor;
+  padding: 0.75rem 1.25rem;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:focus-visible,
+input:focus-visible,
+.chip:focus-visible {
+  outline: 2px solid #ad8240;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .door-panel-left,
+  .door-panel-right {
+    transition: opacity 0.4s ease !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+  }
+
+  .door-open-left,
+  .door-open-right {
+    opacity: 0 !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
