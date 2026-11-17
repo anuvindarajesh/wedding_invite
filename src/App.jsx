@@ -839,7 +839,7 @@ function DoorEntrance({ isOpen, onOpen, isDismissed }) {
                 {/* Inner ring */}
                 <div className="absolute w-[calc(100%-20px)] h-[calc(100%-20px)] rounded-full border border-gold/30 pointer-events-none" />
                 <span className="font-ml text-[11px] tracking-wider text-gold/70 mb-1">
-                  സ്വാഗതം
+                  Welcome
                 </span>
                 <img
                   src="/emblem.png"
