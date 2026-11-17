@@ -293,13 +293,7 @@ function Hero({ active = true }) {
     }`
 
   return (
-    <header
-      className="relative grid min-h-[100svh] place-items-center overflow-hidden px-6 py-14 text-center text-ivory"
-      style={{
-        background:
-          'radial-gradient(ellipse at 50% 42%,#4a5f47 0,#2f4533 40%,#1d3025 80%)',
-      }}
-    >
+    <header className="relative grid min-h-[100svh] place-items-center overflow-hidden px-6 py-14 text-center text-ivory bg-[#001e13]">
       <Snowfall active={active} />
       <div
         className={`pointer-events-none absolute inset-4 border border-gold/50 transition-opacity duration-700 delay-[100ms] ${
@@ -783,7 +777,7 @@ function DoorLeaf({ side, isOpen }) {
       style={{ width: '50%' }}
     >
       {/* Clean deep forest base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a2e21] via-[#122117] to-[#0c160f]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#002618] via-[#001e13] to-[#00120b]" />
 
       {/* Clean minimal gold perimeter border */}
       <div className="absolute inset-4 border border-gold/40 pointer-events-none" />
@@ -838,7 +832,7 @@ function DoorEntrance({ isOpen, onOpen, isDismissed }) {
               <div
                 className="w-48 h-48 sm:w-60 sm:h-60 rounded-full flex flex-col items-center justify-center p-4 text-center relative"
                 style={{
-                  background: 'radial-gradient(ellipse at 40% 35%, #2a4030 0%, #1a2b20 50%, #0e1a13 100%)',
+                  background: 'radial-gradient(ellipse at 40% 35%, #003622 0%, #002216 50%, #00140c 100%)',
                   boxShadow: 'inset 0 6px 24px rgba(0,0,0,0.9)',
                 }}
               >
