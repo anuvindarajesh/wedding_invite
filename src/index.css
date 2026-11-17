@@ -19,12 +19,12 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: env(safe-area-inset-top, 0px);
-  background: #19291f;
+  background: #00120b;
 }
 
 body {
   margin: 0;
-  background: #19291f;
+  background: #00120b;
   -webkit-font-smoothing: antialiased;
 }
 
